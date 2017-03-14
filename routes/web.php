@@ -11,4 +11,11 @@
 |
 */
 
-Route::get('/', 'ScrabbleController@index');
+Route::get('/', 'ScrabbleController');
+
+/**
+* Laravel log viewer: https://github.com/rap2hpoutre/laravel-log-viewer
+*/
+if(config('app.env') == 'local') {
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+}

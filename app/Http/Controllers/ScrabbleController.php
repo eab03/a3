@@ -10,7 +10,7 @@ class ScrabbleController extends Controller
     * GET
     * /
     */
-    public function index() {
+    public function __invoke() {
         return view('welcome');
     }
 }
