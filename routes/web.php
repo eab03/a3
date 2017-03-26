@@ -13,6 +13,8 @@
 
 Route::get('/', 'ScrabbleController');
 
+Route::get('/input', 'ScrabbleController@input');
+
 /**
 * Laravel log viewer: https://github.com/rap2hpoutre/laravel-log-viewer
 */
