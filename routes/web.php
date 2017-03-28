@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', 'ScrabbleController');
+Route::get('/', 'ScrabbleController@input');
 
-Route::get('/input', 'ScrabbleController@input');
 Route::post('/input', 'ScrabbleController@store');
 
 /**

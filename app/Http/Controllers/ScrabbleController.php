@@ -64,7 +64,6 @@ public function input(Request $request) {
         // add value of the individual tiles
         // result is the total sum of tiles without extra points added
 
-
                 foreach ($scrabbleTiles as $scrabbleLetter => $scrabbleNumber) {
                     for ($i = 0; $i < strlen($enterWord); $i++) {
                         $letter = $enterWord[$i];
