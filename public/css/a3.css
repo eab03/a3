@@ -1,5 +1,5 @@
 html {
-    background-image: url("./images/scrabble-243192.jpg");
+    background-image: url("../images/scrabble-243192.jpg");
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -28,8 +28,18 @@ h1 {
 
 /* set the size and color of the word 'Scabble' */
 span {
-    color: red;
+    color: green;
     font-size: 1.36em;
+}
+
+/* styling of welcome page */
+#accessApp {
+    height: 100px;
+    width: 150px;
+}
+
+#accessApp p {
+    font-size: 10px;
 }
 
 /* styling for form elements */
@@ -86,18 +96,18 @@ p.form-control-static {
 
 /* styling for 'calculate' and 'reset' buttons */
 .btn {
-
     margin-top: 35px;
     margin-bottom: 35px;
 }
 
 /* styling for the 'alert' box */
-.alert .alert-success {
+.alert-success {
+    padding: .75em;
     width: 100%;
 }
 
-.alert p {
-    font-size: 2.25em;
+div.alert-success p {
+    font-size: 2em;
     text-align: center;
 }
 
@@ -108,7 +118,7 @@ p.form-control-static {
         margin-bottom: 3%;
         width: 40%;
 	}
-    .alert p {
+    div.alert-success p {
         font-size: 1.5em;
     }
 }

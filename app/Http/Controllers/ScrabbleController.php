@@ -18,7 +18,8 @@ class ScrabbleController extends Controller
     * GET
     * /search
     */
-    public function input(Request $request) {
+
+public function input(Request $request) {
 
         $scrabbleTiles = [
             'a' => 1,
@@ -49,18 +50,18 @@ class ScrabbleController extends Controller
             'z' => 10
         ];
 
-        // declare variables used in functions below
-
-        $i;
-        $letter;
-        $sum = 0;
-        $output; // variable used uniquely in extraBonus function to display message
+        // declare variables used below
         $enterWord = $request->input('enterWord', null);
         $enterWord = strtolower($enterWord);
         $bonus = $request->input('bonus', null);
         $extra = $request->input('extra', null);
 
-        // function to add together the value of the individual tiles
+        $i;
+        $letter;
+        $sum = 0;
+        $output = " "; // variable used uniquely in extraBonus function to display message
+
+        // add value of the individual tiles
         // result is the total sum of tiles without extra points added
 
 
@@ -77,30 +78,65 @@ class ScrabbleController extends Controller
                 dump($enterWord);
                 dump($sum);
 
-                if ($bonus == 'double') {
-                    $sum = $sum * 2;
-                } else if ($bonus == 'triple') {
-                    $sum = $sum * 3;
-                } else {
-                }
+        // add bonus double or triple word score
 
-                //if($request->has('double')) {
-                //    $sum = $sum * 2;
-                //} else if($request->has('triple')) {
-                //    $sum = $sum * 3;
-                //} else {
-                //}
+                if($request->has('bonus')) {
+                    if ($bonus == 'double') {
+                        $sum = $sum * 2;
+                    } else if ($bonus == 'triple') {
+                        $sum = $sum * 3;
+                    } else {
+                    }
+                }
                 dump($sum);
 
-                if($extra == 'fifty') {
+            // add 50 extra 'bingo' points if box is checked
+
+                if($request->has('extra')) {
                     $sum = $sum + 50;
+                    $alertType = "alert-success";
+                    $output = "NICE SCORE!";
                 }
                 else {
+                    $alertType = "success";
                 }
 
                 dump($sum);
 
-        return view('scrabble.input');
+        return view('scrabble.input')->with([
+        'enterWord' => $enterWord,
+        'bonus' => $request->has('bonus'), // checked or not; if it is returns true (see view)
+        'extra' => $request->has('extra'), // checked or not; if it is returns true (see view)
+        'sum' => $sum,
+        'output' => $output
+    ]);
+}
+
+    /**
+    * GET
+    * /input
+    * Validate input data
+    */
+    public function store(Request $request) {
+
+        # Validate the request data
+        // my notes: start with an empty array
+        // key is what we want to validate that points to validation rules
+        $this->validate($request, [
+          'enterWord' => 'required|alpha',
+        ]);
+
+        $enterWord = $request->input('enterWord', null);
+
+        #
+        #
+        # [...Code will eventually go here to actually save this book to a database...]
+        #
+        #
+
+        # Redirect the user to the page to view the book
+        return redirect('/input');
+
     }
 
 }
