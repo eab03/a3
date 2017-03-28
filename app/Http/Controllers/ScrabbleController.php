@@ -11,7 +11,7 @@ class ScrabbleController extends Controller
     * /
     */
     public function __invoke() {
-        return view('welcome');
+        return view('input');
     }
 
     /**
@@ -116,7 +116,7 @@ public function input(Request $request) {
     * /input
     * Validate input data
     */
-    public function store(Request $request) {
+    /*public function store(Request $request) {
 
         # Validate the request data
         // my notes: start with an empty array
@@ -134,8 +134,8 @@ public function input(Request $request) {
         #
 
         # Redirect the user to the page to view the book
-        return redirect('/input');
+        return redirect('/');
 
-    }
+    }*/
 
 }

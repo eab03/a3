@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'ScrabbleController@input');
-
-Route::post('/input', 'ScrabbleController@store');
+Route::get('/input', 'ScrabbleController@input');
+//Route::post('/input', 'ScrabbleController@store');
 
 /**
 * Laravel log viewer: https://github.com/rap2hpoutre/laravel-log-viewer
