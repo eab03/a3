@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form method="GET" action="/input" class="form-horizontal" id="scrabbleForm">
+<form method="GET" action="/" class="form-horizontal" id="scrabbleForm">
     <div class="form-group text-entry">
         <label for="enterWord" class="control-label">YOUR WORD:</label>
         <p class="form-control-static">Required (1-7 letters only please!)</p>
