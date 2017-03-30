@@ -51,7 +51,7 @@ public function input(Request $request) {
         ];
 
         // declare variables used below
-        $enterWord = $request->input('enterWord', null);
+        $enterWord = $request->input('enterWord');
         $enterWord = strtolower($enterWord);
         $bonus = $request->input('bonus', null);
         $extra = $request->input('extra', null);
@@ -64,6 +64,12 @@ public function input(Request $request) {
         // add value of the individual tiles
         // result is the total sum of tiles without extra points added
 
+            if($request->has('enterWord')) {
+
+                $this->validate($request, [
+                'enterWord' => 'required|alpha|max:7',
+                ]);
+
                 foreach ($scrabbleTiles as $scrabbleLetter => $scrabbleNumber) {
                     for ($i = 0; $i < strlen($enterWord); $i++) {
                         $letter = $enterWord[$i];
@@ -73,6 +79,7 @@ public function input(Request $request) {
             		    }
                     }
                 }
+            }
 
                 dump($enterWord);
                 dump($sum);
@@ -107,35 +114,7 @@ public function input(Request $request) {
         'bonus' => $request->has('bonus'), // checked or not; if it is returns true (see view)
         'extra' => $request->has('extra'), // checked or not; if it is returns true (see view)
         'sum' => $sum,
-        'output' => $output
+        'output' => $output,
     ]);
 }
-
-    /**
-    * POST
-    * /input
-    * Validate input data
-    */
-    public function store(Request $request) {
-
-        # Validate the request data
-        // my notes: start with an empty array
-        // key is what we want to validate that points to validation rules
-        $this->validate($request, [
-          'enterWord' => 'required|alpha',
-        ]);
-
-        $enterWord = $request->input('enterWord', null);
-
-        #
-        #
-        # [...Code will eventually go here to actually save this book to a database...]
-        #
-        #
-
-        # Redirect the user to the page to view the book
-        return redirect('/');
-
-    }
-
 }

@@ -6,7 +6,7 @@
     <div class="form-group text-entry">
         <label for="enterWord" class="control-label">YOUR WORD:</label>
         <p class="form-control-static">Required (1-7 letters only please!)</p>
-            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required" maxlength="7" value="{{ $enterWord or '' }}"><br>
+            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required" value="{{ old('enterWord') }}"><br>
     </div><!--close div form-group-->
 
     <fieldset class="form-group radios">
@@ -27,8 +27,17 @@
 
 </form><!--close form-->
 
-@if($enterWord!= null)
-    <div class="alert-success" role="alert">
+@if($errors->get('enterWord'))
+    <div class="alert alert-danger" role="alert">
+    <ul>
+        @foreach($errors->get('enterWord') as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+    </div> <!--close div alert-->
+
+@elseif($enterWord!= null)
+    <div class="alert alert-success" role="alert">
         <p>{{ $output }}</p>
         <p>Your word <em>"{{ $enterWord }}"</em> <br> is worth <strong>{{ $sum }}</strong> points</p>
 
