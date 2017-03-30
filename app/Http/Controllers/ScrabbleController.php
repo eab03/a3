@@ -111,7 +111,7 @@ public function input(Request $request) {
 
         return view('scrabble.input')->with([
         'enterWord' => $enterWord,
-        'bonus' => $request->has('bonus'), // checked or not; if it is returns true (see view)
+        'bonus' => $bonus,
         'extra' => $request->has('extra'), // checked or not; if it is returns true (see view)
         'sum' => $sum,
         'output' => $output,

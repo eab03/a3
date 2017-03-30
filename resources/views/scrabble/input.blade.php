@@ -6,20 +6,21 @@
     <div class="form-group text-entry">
         <label for="enterWord" class="control-label">YOUR WORD:</label>
         <p class="form-control-static">Required (1-7 letters only please!)</p>
-            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required" value="{{ old('enterWord') }}"><br>
+            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required"
+            value="@if($errors->get('enterWord')) {{ old('enterWord')}} @else{{ $enterWord }}@endif"><br>
     </div><!--close div form-group-->
 
     <fieldset class="form-group radios">
         <legend>BONUS POINTS</legend>
-            <label class="control-label"><input type="radio" class="form-check-input" name="bonus" value="none" {{ ($bonus == "none") ? 'CHECKED' : '' }}>&nbsp; None</label><br>
-            <label class="control-label"><input type="radio" class="form-check-input" name="bonus" value="double" {{ ($bonus == "double") ? 'CHECKED' : '' }}>&nbsp; Double word score</label><br>
-            <label class="control-label"><input type="radio" class="form-check-input" name="bonus" value="triple" {{ ($bonus == "triple") ? 'CHECKED' : '' }}>&nbsp; Triple word score</label>
+            <label class="control-label"><input type="radio" class="form-check-input" name="bonus" value="none" {{ ($bonus == 'none') ? 'checked': '' }} >&nbsp; None</label><br>
+            <label class="control-label"><input type="radio" class="form-check-input" name="bonus" value="double" {{ ($bonus == 'double') ? 'checked': '' }}>&nbsp; Double word score</label><br>
+            <label class="control-label"><input type="radio" class="form-check-input" name="bonus" value="triple" {{ ($bonus == 'triple') ? 'checked': '' }}>&nbsp; Triple word score</label>
     </fieldset><!--close div form-group-->
 
     <fieldset class="form-group checkbox">
         <legend>INCLUDE 50 POINT "BINGO?"</legend>
             <p class="form-control-static">(A word that uses all 7 letters!)</p>
-            <label class="control-label"><input type='checkbox' class="form-check-input" name="extra" value="fifty" {{ ($extra == "fifty") ? 'CHECKED' : '' }}>&nbsp; Add 50 points!</label>
+            <label class="control-label"><input type='checkbox' class="form-check-input" name="extra" value="fifty" {{ ($extra) ? 'CHECKED' : '' }}>&nbsp; Add 50 points!</label>
 
     </fieldset><!--close div form-group-->
 
