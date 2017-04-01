@@ -6,7 +6,7 @@
     <div class="form-group text-entry">
         <label for="enterWord" class="control-label">YOUR WORD:</label>
         <p class="form-control-static">Required (1-7 letters only please!)</p>
-            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required"
+            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required" maxlength="7"
             value="@if($errors->get('enterWord')) {{ old('enterWord')}} @else{{ $enterWord }}@endif"><br>
 
         <div class="error">
@@ -32,6 +32,7 @@
         <legend>INCLUDE 50 POINT "BINGO?"</legend>
             <p class="form-control-static">(A word that uses all 7 letters!)</p>
             <label class="control-label"><input type='checkbox' class="form-check-input" name="extra" value="fifty" {{ ($extra) ? 'CHECKED' : '' }}>&nbsp; Add 50 points!</label>
+            </div><!--close div error-->
 
     </fieldset><!--close div form-group-->
 
