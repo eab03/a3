@@ -32,8 +32,6 @@
         <legend>INCLUDE 50 POINT "BINGO?"</legend>
             <p class="form-control-static">(A word that uses all 7 letters!)</p>
             <label class="control-label"><input type='checkbox' class="form-check-input" name="extra" value="fifty" {{ ($extra) ? 'CHECKED' : '' }}>&nbsp; Add 50 points!</label>
-            </div><!--close div error-->
-
     </fieldset><!--close div form-group-->
 
         <input type="submit" class="btn btn-primary btn-small" id="calculate_btn" name="calculate" value="calculate">
