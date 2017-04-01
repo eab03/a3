@@ -6,7 +6,7 @@
     <div class="form-group text-entry">
         <label for="enterWord" class="control-label">YOUR WORD:</label>
         <p class="form-control-static">Required (1-7 letters only please!)</p>
-            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" 
+            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required"
             value="@if($errors->get('enterWord')) {{ old('enterWord')}} @else{{ $enterWord }}@endif"><br>
 
         <div class="error">
@@ -45,7 +45,5 @@
         @endif
 
 </form><!--close form-->
-
-
 
 @endsection

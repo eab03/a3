@@ -99,7 +99,7 @@ class ScrabbleController extends Controller
         if($request->has('extra')) {
 
             $this->validate($request, [
-            'enterWord' => 'required|max:7|min:7',
+            'enterWord' => 'required|min:7',
             ]);
 
             $sum = $sum + 50;
