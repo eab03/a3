@@ -6,8 +6,19 @@
     <div class="form-group text-entry">
         <label for="enterWord" class="control-label">YOUR WORD:</label>
         <p class="form-control-static">Required (1-7 letters only please!)</p>
-            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required"
+            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" 
             value="@if($errors->get('enterWord')) {{ old('enterWord')}} @else{{ $enterWord }}@endif"><br>
+
+        <div class="error">
+            @if($errors->get('enterWord'))
+                <ul>
+                    @foreach($errors->get('enterWord') as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div><!--close div error-->
+
     </div><!--close div form-group-->
 
     <fieldset class="form-group radios">
@@ -26,23 +37,15 @@
 
         <input type="submit" class="btn btn-primary btn-small" id="calculate_btn" name="calculate" value="calculate">
 
+        @if($enterWord!= null and !$errors->get('enterWord'))
+            <div class="alert alert-success" role="alert">
+                <p><strong>{{ $output }}</strong></p>
+                <p>Your word <em>"{{ $enterWord }}"</em> is worth <strong>{{ $sum }}</strong> points</p>
+            </div> <!--close div alert-->
+        @endif
+
 </form><!--close form-->
 
-@if($errors->get('enterWord'))
-    <div class="alert alert-danger" role="alert">
-    <ul>
-        @foreach($errors->get('enterWord') as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-    </div> <!--close div alert-->
 
-@elseif($enterWord!= null)
-    <div class="alert alert-success" role="alert">
-        <p>{{ $output }}</p>
-        <p>Your word <em>"{{ $enterWord }}"</em> <br> is worth <strong>{{ $sum }}</strong> points</p>
-
-    </div> <!--close div alert-->
-@endif
 
 @endsection

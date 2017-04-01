@@ -16,7 +16,7 @@ body {
     margin-top: 2%;
     margin-bottom: 2%;
     min-width: 300px;
-    padding: 20px 50px;
+    padding: 10px 50px;
     width: 40%;
 }
 
@@ -32,19 +32,9 @@ span {
     font-size: 1.36em;
 }
 
-/* styling of welcome page */
-#accessApp {
-    height: 100px;
-    width: 150  px;
-}
-
-#accessApp p {
-    font-size: 10px;
-}
-
 /* styling for form elements */
 .form-group {
-    padding: 0 0 7.5px 15px;
+    padding: 0 0 2.5px 15px;
 }
 
 .radios {
@@ -78,7 +68,7 @@ label:first-child {
 /* set unique id for text box */
 #enterWord {
     height: 40px;
-    width: 205px;
+    width: 200px;
 }
 
 .control-label, #enterWord {
@@ -96,43 +86,59 @@ p.form-control-static {
 
 /* styling for 'calculate' and 'reset' buttons */
 .btn {
-    margin-top: 35px;
+    margin-top: 30px;
     margin-bottom: 35px;
 }
 
+/* styling for error messages */
+div.error li {
+    color: red;
+    font-size: 1.25em;
+    font-style: italic;
+}
+
 /* styling for the 'alert' box */
-.alert.alert-success, .alert.alert-danger {
+div.alert.alert-success {
     padding: .75em;
     width: 100%;
 }
 
 div.alert.alert-success p {
-    font-size: 2em;
+    font-size: 1.75em;
     text-align: center;
 }
 
-li {
-    font-size: 1.5em;
-}
-
 /* media query for desktop */
-@media only screen and (max-device-width: 800px) {
+@media only screen and (max-device-width: 750px) {
 	body {
         margin-top: 3%;
         margin-bottom: 3%;
-        width: 40%;
+        width: 35%;
 	}
-    div.alert-success p {
+    h1 {
+        font-size: 2em;
+    }
+    .error li {
+        font-size: 1.1em;
+    }
+    legend, label, label:first-child {
+        font-size: 1.75em;
+    }
+    .radios label.control-label, .checkbox label.control-label {
         font-size: 1.5em;
     }
-
-    li {
-        font-size: 1.1em;
+    input#calculate_btn.btn-primary.btn-small {
+        font-size: 1.15em;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    div.alert.alert-success p {
+        font-size: 1em;
     }
 }
 
 /* media query for desktop */
-@media only screen and (min-device-width: 1300px) {
+@media only screen and (min-device-width: 1000px) {
 	body {
 		margin-top: 3%;
         margin-bottom: 3%;

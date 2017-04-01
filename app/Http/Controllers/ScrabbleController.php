@@ -19,7 +19,9 @@ class ScrabbleController extends Controller
     * /search
     */
 
-public function input(Request $request) {
+    public function input(Request $request) {
+
+        // declare array and variables used below
 
         $scrabbleTiles = [
             'a' => 1,
@@ -50,7 +52,6 @@ public function input(Request $request) {
             'z' => 10
         ];
 
-        // declare variables used below
         $enterWord = $request->input('enterWord');
         $enterWord = strtolower($enterWord);
         $bonus = $request->input('bonus', null);
@@ -59,55 +60,57 @@ public function input(Request $request) {
         $i;
         $letter;
         $sum = 0;
+        $alertType;
         $output = " "; // variable used uniquely in extraBonus function to display message
 
         // add value of the individual tiles
         // result is the total sum of tiles without extra points added
 
-            if($request->has('enterWord')) {
+        if($request->has('enterWord')) {
 
-                $this->validate($request, [
-                'enterWord' => 'required|alpha|max:7',
-                ]);
+            $this->validate($request, [
+            'enterWord' => 'required|alpha|max:7',
+            ]);
 
-                foreach ($scrabbleTiles as $scrabbleLetter => $scrabbleNumber) {
-                    for ($i = 0; $i < strlen($enterWord); $i++) {
-                        $letter = $enterWord[$i];
-                        if (strstr($letter, $scrabbleLetter )) {
-                            $sum = $sum += $scrabbleNumber;
+            foreach ($scrabbleTiles as $scrabbleLetter => $scrabbleNumber) {
+                for ($i = 0; $i < strlen($enterWord); $i++) {
+                    $letter = $enterWord[$i];
+                    if (strstr($letter, $scrabbleLetter )) {
+                        $sum = $sum += $scrabbleNumber;
             		    } else {
-            		    }
-                    }
+            		}
                 }
-            }
-
-                dump($enterWord);
-                dump($sum);
+            } // end foreach loop
+        } // end if statement
 
         // add bonus double or triple word score
 
-                if($request->has('bonus')) {
-                    if ($bonus == 'double') {
-                        $sum = $sum * 2;
-                    } else if ($bonus == 'triple') {
-                        $sum = $sum * 3;
-                    } else {
-                    }
-                }
-                dump($sum);
+        if($request->has('bonus')) {
+            if ($bonus == 'double') {
+                $sum = $sum * 2;
+            } else if ($bonus == 'triple') {
+                $sum = $sum * 3;
+            } else {
+            }
+        } // end if statement
 
-            // add 50 extra 'bingo' points if box is checked
+        // add 50 extra 'bingo' points if box is checked
 
-                if($request->has('extra')) {
-                    $sum = $sum + 50;
-                    $alertType = "alert-success";
-                    $output = "NICE SCORE!";
-                }
-                else {
-                    $alertType = "success";
-                }
+        if($request->has('extra')) {
 
-                dump($sum);
+            $this->validate($request, [
+            'enterWord' => 'required|max:7|min:7',
+            ]);
+
+            $sum = $sum + 50;
+            $alertType = "alert-success";
+            $output = "AWESOME SCORE!";
+        } else {
+            $alertType = "success";
+            $output = "GOOD JOB!";
+        }
+
+        // return values to the 'input' view
 
         return view('scrabble.input')->with([
         'enterWord' => $enterWord,
@@ -115,6 +118,8 @@ public function input(Request $request) {
         'extra' => $request->has('extra'), // checked or not; if it is returns true (see view)
         'sum' => $sum,
         'output' => $output,
-    ]);
-}
-}
+        ]);
+
+    } // end input method
+
+} // end ScrabbleController class
