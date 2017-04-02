@@ -63,13 +63,21 @@ class ScrabbleController extends Controller
         $alertType;
         $output = " "; // variable used uniquely in extraBonus function to display message
 
+        $msg = [
+            0 => "Yay!",
+            1 => "Nice!",
+            2 => "Marvelous!"
+        ];
+
+        $rand_keys = array_rand($msg, 1);
+
         // add value of the individual tiles
         // result is the total sum of tiles without extra points added
 
         if($request->has('enterWord')) {
 
             $this->validate($request, [
-            'enterWord' => 'required|alpha|max:7',
+            'enterWord' => 'required|alpha|max:15',
             ]);
 
             foreach ($scrabbleTiles as $scrabbleLetter => $scrabbleNumber) {
@@ -107,7 +115,7 @@ class ScrabbleController extends Controller
             $output = "AWESOME SCORE!";
         } else {
             $alertType = "success";
-            $output = "GOOD JOB!";
+            $output = $msg[$rand_keys];
         }
 
         // return values to the 'input' view

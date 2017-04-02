@@ -5,8 +5,8 @@
 <form method="GET" action="/" class="form-horizontal" id="scrabbleForm">
     <div class="form-group text-entry">
         <label for="enterWord" class="control-label">YOUR WORD:</label>
-        <p class="form-control-static">Required (1-7 letters only please!)</p>
-            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required" maxlength="7"
+        <p class="form-control-static">Required (1-15 letters only please!)</p>
+            <input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required" maxlength="15"
             value="@if($errors->get('enterWord')) {{ old('enterWord')}} @else{{ $enterWord }}@endif"><br>
 
         <div class="error">
@@ -30,7 +30,7 @@
 
     <fieldset class="form-group checkbox">
         <legend>INCLUDE 50 POINT "BINGO?"</legend>
-            <p class="form-control-static">(A word that uses all 7 letters!)</p>
+            <p class="form-control-static">(A word that uses all 7 of your tiles!)</p>
             <label class="control-label"><input type='checkbox' class="form-check-input" name="extra" value="fifty" {{ ($extra) ? 'CHECKED' : '' }}>&nbsp; Add 50 points!</label>
     </fieldset><!--close div form-group-->
 
