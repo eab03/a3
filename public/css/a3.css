@@ -1,10 +1,15 @@
 html {
+    background-attachment: fixed;
     background-color: #2c3e50;
     background-image: url("../images/scrabble-243192.jpg");
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
+    width: 100%;
 }
 
+/* background-image code: http://sixrevisions.com/css/responsive-background-image/ */
 /* background-image source: https://pixabay.com/en/scrabble-game-board-game-words-243192/ */
 
 body {
