@@ -141,8 +141,9 @@ div.alert.alert-success p {
         margin-top: 17.5px;
         margin-bottom: 15px;
     }
-    p.form-control-static, .error li, input#calculate_btn.btn-primary.btn-small, div.alert.alert-success p {
-        font-size: 1.1em;
+    p.form-control-static, div.error li, input#calculate_btn.btn-primary.btn-small, div.alert.alert-success p {
+        font-size: 1.1em !important;
+        font-weight: normal;
     }
 }
 
@@ -160,8 +161,9 @@ div.alert.alert-success p {
         margin-top: 20px;
         margin-bottom: 12.5px;
     }
-    p.form-control-static, .error li, input#calculate_btn.btn-primary.btn-small, div.alert.alert-success p {
-        font-size: 1.25em;
+    p.form-control-static, div.error li, input#calculate_btn.btn-primary.btn-small, div.alert.alert-success p {
+        font-size: 1.25em !important;
+        font-weight: normal;
     }
 }
 
@@ -196,11 +198,13 @@ div.alert.alert-success p {
 	body {
         width: 34%;
 	}
+}
 
 @media (min-width: 1500px) {
     body {
         width: 27%;
     }
+}
 
 @media (min-width: 1700px) {
     body {
