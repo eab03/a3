@@ -114,6 +114,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'enterWord' => 'word entered'
+    ],
 
 ];
