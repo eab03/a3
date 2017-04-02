@@ -1,5 +1,6 @@
 html {
     background-image: url("../images/scrabble-243192.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -108,58 +109,100 @@ div.alert.alert-success p {
     text-align: center;
 }
 
-/* media query for desktop */
-@media only screen and (max-device-width: 750px) {
-	body {
+/* https://v4-alpha.getbootstrap.com/layout/overview/ */
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+    html {
+        background-color: green;
+        background-image: none;
+    }
+    body {
         margin-top: 3%;
         margin-bottom: 3%;
-        width: 35%;
+        width: 40%;
 	}
-    h1 {
-        font-size: 2em;
-    }
-    .error li {
-        font-size: 1.1em;
-    }
-    legend, label, label:first-child {
-        font-size: 1.75em;
+    h1, legend, label, label:first-child {
+        font-size: 1.5em;
     }
     .radios label.control-label, .checkbox label.control-label {
         font-size: 1.5em;
     }
+    .radios {
+        padding-bottom: 10px;
+    }
     input#calculate_btn.btn-primary.btn-small {
-        font-size: 1.15em;
+        margin-top: 17.5px;
+        margin-bottom: 15px;
+    }
+    p.form-control-static, .error li, input#calculate_btn.btn-primary.btn-small, div.alert.alert-success p {
+        font-size: 1.1em;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+    html {
+        background-color: green;
+        background-image: none;
+    }
+    body {
+		margin-top: 4%;
+        margin-bottom: 4%;
+        width: 45%;
+	}
+    h1 {
+        font-size: 2em;
+    }
+    input#calculate_btn.btn-primary.btn-small {
+        margin-top: 20px;
+        margin-bottom: 12.5px;
+    }
+    .error li, input#calculate_btn.btn-primary.btn-small, div.alert.alert-success p {
+        font-size: 1.25em;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 55%;
+    }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+	body {
+		margin-top: 5%;
+        margin-bottom: 5%;
+        width: 45%;
+	}
+    input#calculate_btn.btn-primary.btn-small {
+        font-size: 1em;
         margin-top: 20px;
         margin-bottom: 15px;
     }
     div.alert.alert-success p {
-        font-size: 1em;
+        font-size: 1.25em;
     }
 }
 
-/* media query for desktop */
-@media only screen and (min-device-width: 1000px) {
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 	body {
-		margin-top: 3%;
-        margin-bottom: 3%;
         width: 34%;
 	}
-}
 
-/* media query for desktop */
-@media only screen and (min-device-width: 1700px) {
-	body {
-		margin-top: 4%;
-        margin-bottom: 4%;
-        width: 30%;
-	}
-}
+@media (min-width: 1500px) {
+    body {
+        width: 27%;
+    }
 
-/* media query for very large desktop */
-@media only screen and (min-device-width: 2500px) {
-	body {
-		margin-top: 5%;
-        margin-bottom: 5%;
-        width: 20%;
-	}
+@media (min-width: 1700px) {
+    body {
+        width: 22%;
+    }
 }
