@@ -115,7 +115,7 @@ return [
     */
 
     'attributes' => [
-        'enterWord' => 'word entered'
+        'enterWord' => 'word'
     ],
 
 ];
