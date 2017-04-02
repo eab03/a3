@@ -1,12 +1,11 @@
 html {
+    background-color: #2c3e50;
     background-image: url("../images/scrabble-243192.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
-    width: 100%;
 }
 
-/* https://pixabay.com/en/scrabble-game-board-game-words-243192/ */
+/* background-image source: https://pixabay.com/en/scrabble-game-board-game-words-243192/ */
 
 body {
     border: 3px solid grey;
@@ -79,7 +78,7 @@ label:first-child {
 }
 
 p.form-control-static {
-    color: red;
+    color: green;
     font-size: 1.36em;
     font-style: italic;
     text-align: left;
@@ -92,10 +91,15 @@ p.form-control-static {
 }
 
 /* styling for error messages */
+div.error ul {
+margin-left: -15px;
+}
+
 div.error li {
     color: red;
-    font-size: 1.25em;
+    font-size: 1.36em;
     font-style: italic;
+    font-weight: bold;
 }
 
 /* styling for the 'alert' box */
@@ -113,19 +117,21 @@ div.alert.alert-success p {
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575px) {
-    html {
-        background-color: green;
-        background-image: none;
-    }
     body {
         margin-top: 3%;
         margin-bottom: 3%;
+        padding: 5px 25px;
         width: 40%;
 	}
     h1, legend, label, label:first-child {
         font-size: 1.5em;
     }
-    .radios label.control-label, .checkbox label.control-label {
+    #enterWord {
+        height: 30px;
+        width: 175px;
+        margin-bottom: -10px;
+    }
+    .control-label, #enterWord, .radios label.control-label, .checkbox label.control-label {
         font-size: 1.5em;
     }
     .radios {
@@ -142,10 +148,6 @@ div.alert.alert-success p {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767px) {
-    html {
-        background-color: green;
-        background-image: none;
-    }
     body {
 		margin-top: 4%;
         margin-bottom: 4%;
@@ -158,7 +160,7 @@ div.alert.alert-success p {
         margin-top: 20px;
         margin-bottom: 12.5px;
     }
-    .error li, input#calculate_btn.btn-primary.btn-small, div.alert.alert-success p {
+    p.form-control-static, .error li, input#calculate_btn.btn-primary.btn-small, div.alert.alert-success p {
         font-size: 1.25em;
     }
 }
@@ -170,7 +172,6 @@ div.alert.alert-success p {
         margin-bottom: 5%;
         width: 55%;
     }
-
 }
 
 /* Large devices (desktops, 992px and up) */
