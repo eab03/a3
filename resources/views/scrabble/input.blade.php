@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h1><span id="scrabble">SCRABBLE</span><br>WORD SCORE CALCULATOR</h1>
+
 <form method="GET" action="/" class="form-horizontal" id="scrabbleForm">
     <div class="form-group text-entry">
         <label for="enterWord" class="control-label">YOUR WORD:</label>

@@ -17,8 +17,6 @@
 
 <body>
 
-	<h1><span id="scrabble">SCRABBLE</span><br>WORD SCORE CALCULATOR</h1>
-
     <section>
         @yield('content')
     </section>
