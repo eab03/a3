@@ -77,7 +77,7 @@ class ScrabbleController extends Controller
         if($request->has('enterWord')) {
 
             $this->validate($request, [
-            'enterWord' => 'required|alpha|max:15',
+            'enterWord' => 'required|alpha|min:1|max:15',
             ]);
 
             foreach ($scrabbleTiles as $scrabbleLetter => $scrabbleNumber) {
@@ -85,15 +85,21 @@ class ScrabbleController extends Controller
                     $letter = $enterWord[$i];
                     if (strstr($letter, $scrabbleLetter )) {
                         $sum = $sum += $scrabbleNumber;
-            		    } else {
+            		} else {
             		}
                 }
             } // end foreach loop
         } // end if statement
 
+
         // add bonus double or triple word score
 
         if($request->has('bonus')) {
+
+            $this->validate($request, [
+            'enterWord' => 'required',
+            ]);
+
             if ($bonus == 'double') {
                 $sum = $sum * 2;
             } else if ($bonus == 'triple') {
